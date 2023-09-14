@@ -29,10 +29,9 @@ class AuthRemoteDatasource {
 
   Future<Either<String, AuthResponseModel>> login(
       LoginRequestModel model) async {
-    
     final headers = {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     };
     final response = await http.post(
         Uri.parse('${GlobalVariables.baseUrl}/api/login'),
@@ -52,7 +51,7 @@ class AuthRemoteDatasource {
     final headers = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer $token'
+      'Authorization': 'Bearer $token',
     };
     final response = await http.post(
       Uri.parse('${GlobalVariables.baseUrl}/api/logout'),
@@ -60,7 +59,7 @@ class AuthRemoteDatasource {
     );
 
     if (response.statusCode == 200) {
-      return const Right('Logout Succesfully');
+      return const Right('logout success');
     } else {
       return const Left('Server error');
     }

@@ -6,8 +6,10 @@ import 'package:flutter_fic7/pages/dashboard/dashboard_page.dart';
 import 'package:flutter_fic7/utils/light_themes.dart';
 import 'package:flutter_fic7/pages/splash/splash_page.dart';
 
+import 'bloc/categories/categories_bloc.dart';
 import 'bloc/login/login_bloc.dart';
 import 'bloc/logout/logout_bloc.dart';
+import 'bloc/products/products_bloc.dart';
 import 'bloc/register/register_bloc.dart';
 
 void main() {
@@ -30,6 +32,12 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => LogoutBloc(),
+        ),
+        BlocProvider(
+          create: (context) => ProductsBloc(),
+        ),
+        BlocProvider(
+          create: (context) => CategoriesBloc(),
         ),
       ],
       child: MaterialApp(
