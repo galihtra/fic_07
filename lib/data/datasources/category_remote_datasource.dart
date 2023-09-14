@@ -4,6 +4,7 @@ import 'package:flutter_fic7/data/models/categories_response_model.dart';
 import 'package:http/http.dart' as http;
 
 class CategoryRemoteDatasource {
+
   Future<Either<String, CategoriesResponseModel>> getCategories() async {
     final headers = {
       'Accept': 'application/json',
@@ -20,4 +21,5 @@ class CategoryRemoteDatasource {
       return const Left('Server Error');
     }
   }
+
 }

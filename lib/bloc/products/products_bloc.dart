@@ -8,11 +8,21 @@ part 'products_state.dart';
 part 'products_bloc.freezed.dart';
 
 class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
-  ProductsBloc() : super(_Initial()) {
+  ProductsBloc() : super(const _Initial()) {
     on<_GetAll>((event, emit) async {
       emit(const _$_Loading());
       final result = await ProductRemoteDatasource().getProducts();
       result.fold(
+        (l) => emit(_$_Error(l)),
+        (r) => emit(_Loaded(r)),
+      );
+    });
+
+    on<_GetByCategory>((event, emit) async {
+      emit(const _$_Loading());
+      final response = await ProductRemoteDatasource()
+          .getProductsByCategory(event.categoryId);
+      response.fold(
         (l) => emit(_$_Error(l)),
         (r) => emit(_Loaded(r)),
       );

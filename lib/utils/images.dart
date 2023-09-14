@@ -13,5 +13,9 @@ class Images {
   // static const String placeholder_1x1 = 'assets/images/placeholder_1x1.png';
   static const String flashDeal = 'assets/images/flash_deal.png';
   static const String filterImage = 'assets/images/filter.png';
-  static const String toolbarBackground ='assets/images/toolbar_background.jpg';
+  static const String toolbarBackground =
+      'assets/images/toolbar_background.jpg';
+
+  static const String wishlist = 'assets/images/wishlist.png';
+  static const String delete = 'assets/images/delete.png';
 }
