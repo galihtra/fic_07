@@ -75,11 +75,15 @@ class _BottomCartViewState extends State<BottomCartView> {
                     ),
                     child: BlocBuilder<CheckoutBloc, CheckoutState>(
                       builder: (context, state) {
-                        return state.map(loaded: (value) {
+                        return state.map(loading: (value) {
+                          return CircularProgressIndicator();
+                        }, loaded: (value) {
                           int totalQty = 0;
-                          value.products.forEach((element) {
-                            totalQty += element.quantity;
-                          });
+                          value.products.forEach(
+                            (element) {
+                              totalQty += element.quantity;
+                            },
+                          );
                           return Text(
                             '$totalQty',
                             style: titilliumSemiBold.copyWith(
