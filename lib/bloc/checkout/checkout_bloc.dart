@@ -39,8 +39,7 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
       }
     });
 
-
-     on<_RemoveToCart>((event, emit) {
+    on<_RemoveToCart>((event, emit) {
       var currentState = state as _Loaded;
 
       // list of productquatity A
@@ -65,7 +64,5 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
     on<_Clear>((event, emit) {
       emit(const _Loaded([]));
     });
-
-    
   }
 }

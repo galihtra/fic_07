@@ -23,12 +23,11 @@ class CartWidget extends StatelessWidget {
     return InkWell(
       onTap: () {
         // Navigator.push(
-        //   context,
-        //   PageRouteBuilder(
-        //     transitionDuration: const Duration(milliseconds: 1000),
-        //     pageBuilder: (context, anim1, anim2) => const ProductDetail(),
-        //   ),
-        // );
+        //     context,
+        //     PageRouteBuilder(
+        //       transitionDuration: const Duration(milliseconds: 1000),
+        //       pageBuilder: (context, anim1, anim2) => const ProductDetail(),
+        //     ));
       },
       child: Container(
         margin: const EdgeInsets.only(top: Dimensions.paddingSizeSmall),
@@ -88,17 +87,21 @@ class CartWidget extends StatelessWidget {
                             width: Dimensions.paddingSizeSmall,
                           ),
                           InkWell(
-                                  onTap: () {
-                                    context.read<CheckoutBloc>().add(CheckoutEvent.removeToCart(productQuantity.product, productQuantity.quantity));
-                                  },
-                                  child: SizedBox(
-                                      width: 20,
-                                      height: 20,
-                                      child: Image.asset(
-                                        Images.delete,
-                                        scale: .5,
-                                      )),
-                                ),
+                            onTap: () {
+                              context.read<CheckoutBloc>().add(
+                                    CheckoutEvent.removeToCart(
+                                        productQuantity.product,
+                                        productQuantity.quantity),
+                                  );
+                            },
+                            child: SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: Image.asset(
+                                  Images.delete,
+                                  scale: .5,
+                                )),
+                          ),
                         ],
                       ),
                       const SizedBox(
@@ -116,9 +119,8 @@ class CartWidget extends StatelessWidget {
                           ),
                           const SizedBox(
                             width: 8,
-
                           ),
-                          Text(' x ${productQuantity.quantity}')
+                          Text(' x ${productQuantity.quantity}'),
                         ],
                       ),
                       const SizedBox(width: Dimensions.paddingSizeSmall),

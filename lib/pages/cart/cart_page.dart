@@ -67,7 +67,7 @@ class CartPageState extends State<CartPage> {
                           },
                         );
                         return Text(
-                          '${totalPrice}'.formatPrice(),
+                          '$totalPrice'.formatPrice(),
                           style: titilliumSemiBold.copyWith(
                               color: Theme.of(context).primaryColor,
                               fontSize: Dimensions.fontSizeLarge),
@@ -83,7 +83,7 @@ class CartPageState extends State<CartPage> {
                 builder: (context, state) {
                   return state.maybeWhen(
                     orElse: () {
-                      return const Center(
+                      return Center(
                         child: CircularProgressIndicator(),
                       );
                     },
@@ -155,11 +155,15 @@ class CartPageState extends State<CartPage> {
                     builder: (context, state) {
                       return state.maybeWhen(
                         orElse: () {
-                          return const Center(child: Text("No Data"));
+                          return const Center(
+                            child: Text('No Data'),
+                          );
                         },
                         loaded: (products) {
                           if (products.isEmpty) {
-                            return const Center(child: Text("No Data"));
+                            return const Center(
+                              child: Text('No Data'),
+                            );
                           }
                           return ListView.builder(
                             itemCount: products.length,
@@ -169,7 +173,8 @@ class CartPageState extends State<CartPage> {
                                 padding: const EdgeInsets.only(
                                     bottom: Dimensions.paddingSizeSmall),
                                 child: CartWidget(
-                                    productQuantity: products[index]),
+                                  productQuantity: products[index],
+                                ),
                               );
                             },
                           );
